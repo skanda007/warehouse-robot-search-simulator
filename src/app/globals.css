@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg: #0a0b0c;
+  --color-surface: #121517;
+  --color-raised: #191d20;
+  --color-line: #2a2e33;
+  --color-ink: #f3f4f1;
+  --color-muted: #9aa3aa;
+  --color-volt: #c8ff2e;
+  --color-volt-dim: #a8d927;
+  --color-heat: #ff5a36;
+  --color-cool: #3ad6ff;
+  --color-bfs: #4b8cff;
+  --color-dfs: #38c982;
+  --color-ucs: #ff5a63;
+  --color-frontier: #ffd23e;
+  --color-explored: #4b8cff;
+  --color-current: #ff9b42;
+  --color-path: #38c982;
+  --color-obstacle: #343b40;
+
+  /* Backward compatible aliases for components */
+  --color-panel: #121517;
+  --color-panel-2: #191d20;
+  --color-edge: #2a2e33;
+  --color-brand: #c8ff2e;
+  --color-ok: #38c982;
+  --color-warn: #ffd23e;
+  --color-bad: #ff5a63;
+
+  --font-display: var(--font-anton-google), "Anton", Impact, "Arial Narrow", sans-serif;
+  --font-sans: var(--font-inter-google), "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background-color: #0a0b0c;
+  color: #f3f4f1;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* Keel Fitness / Warehouse Autonomy subtle fine grid background texture */
+body {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(200, 255, 46, 0.04), transparent 70%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.024) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.024) 1px, transparent 1px);
+  background-size: 100% 100%, 64px 64px, 64px 64px;
+  background-position: center top, center center, center center;
+  background-attachment: fixed;
+}
+
+::selection {
+  background: rgba(200, 255, 46, 0.35);
+  color: #f3f4f1;
+}
+
+/* Fallback for WebKit (Safari, iOS Safari, Chromium) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0b0c;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #2a2e33;
+  border-radius: 4px;
+  border: 2px solid #0a0b0c;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #38414a;
+}
+
+/* Standard W3C scrollbars for supporting browsers */
+@supports (scrollbar-width: thin) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #2a2e33 #0a0b0c;
+  }
+}
+
+/* Display font typography helper */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+/* Outlined headline word treatment from Keel reference */
+.headline-outlined {
+  -webkit-text-stroke: 1.5px rgba(243, 244, 241, 0.42);
+  color: transparent;
+  text-transform: uppercase;
+}
+
+.headline-outlined-volt {
+  -webkit-text-stroke: 1.5px #c8ff2e;
+  color: transparent;
+  text-transform: uppercase;
+}
+
+/* Horizontal continuous looping marquee */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-container {
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+  display: flex;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 32s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Animations from reference */
+@keyframes wa-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes wa-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes wa-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.wa-scan {
+  transform-origin: 0 0;
+  animation: wa-spin 3s linear infinite;
+}
+
+.wa-scan-local {
+  transform-origin: -3px 0;
+  animation: wa-spin 2s linear infinite;
+}
+
+.wa-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: wa-pulse 2s ease-in-out infinite;
+}
+
+.wa-fade-up {
+  animation: wa-fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* React Flow dark styling */
+.react-flow__attribution {
+  display: none;
+}
+
+.react-flow__controls-button {
+  background: #191d20 !important;
+  border-bottom: 1px solid #2a2e33 !important;
+  fill: #f3f4f1 !important;
+  color: #f3f4f1 !important;
+}
+
+.react-flow__controls-button:hover {
+  background: #2a2e33 !important;
+}
+
+.react-flow__controls-button svg {
+  fill: #f3f4f1 !important;
+}
+
+/* Range input styled with electric volt */
+input[type="range"] {
+  accent-color: #c8ff2e;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .wa-scan,
+  .wa-scan-local,
+  .wa-pulse,
+  .wa-fade-up,
+  .marquee-track {
+    animation: none !important;
+  }
+  .marquee-track {
+    transform: none !important;
+  }
+}
