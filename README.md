@@ -1,4 +1,4 @@
-# WAREHOUSE AUTONOMY
+# WAREHOUSE ROBOT SEARCH SIMULATOR
 ### Intelligent Shelf Retrieval Using Uninformed Search (BFS · DFS · Uniform-Cost Search)
 
 [![Next.js 16](https://img.shields.io/badge/Next.js-16.2.6-black?style=flat&logo=next.js)](https://nextjs.org/)
@@ -9,7 +9,7 @@
 [![Vitest](https://img.shields.io/badge/Vitest-5.1.0-6e9f18?style=flat&logo=vitest)](https://vitest.dev/)
 [![Pytest](https://img.shields.io/badge/Pytest-46_Passed-0a9edc?style=flat&logo=pytest)](https://docs.pytest.org/)
 
-**Warehouse Autonomy** is an industrial-grade simulation and pedagogical workbench for Autonomous Mobile Robots (AMRs). Docked at a warehouse loading bay, an AMR plans the optimal route to retrieve goods from a designated storage rack using manually implemented classical AI search algorithms:
+**WAREHOUSE ROBOT SEARCH SIMULATOR** is an industrial-grade simulation and pedagogical workbench for Autonomous Mobile Robots (AMRs). Docked at a warehouse loading bay, an AMR plans the optimal route to retrieve goods from a designated storage rack using manually implemented classical AI search algorithms:
 * **Breadth-First Search (BFS)** — Guaranteed shortest path by step count (FIFO queue).
 * **Depth-First Search (DFS)** — Memory-efficient deep exploration (LIFO stack, non-optimal).
 * **Uniform-Cost Search (UCS)** — Guaranteed cost-optimal route across weighted terrain (Min-Heap priority queue).
